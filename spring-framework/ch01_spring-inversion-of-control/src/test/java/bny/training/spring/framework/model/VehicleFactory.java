@@ -19,15 +19,11 @@ package bny.training.spring.framework.model;
 // Add a static factory and an instance factory here.
 public class VehicleFactory {
 
-    public static Vehicle getStaticVehicle() {
+  public static Vehicle getStaticVehicle() {
+    return new Vehicle("truck", 2016);
+  }
 
-        //TODO: fix this.
-        return null;
-    }
-
-    public Vehicle getVehicle() {
-
-        //TODO: fix this.
-        return null;
-    }
+  public Vehicle getVehicle() {
+    return new Vehicle("bike", 2015);
+  }
 }
