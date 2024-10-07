@@ -20,6 +20,21 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <!-- create bean definitions to pass the tests -->
+    <bean id="vehicleThroughConstructor" class="bny.training.spring.framework.model.Vehicle"/>
 
+    <bean id="vehicleThroughConstructorNamed" class="bny.training.spring.framework.model.Vehicle">
+        <constructor-arg name="type" value="truck"/>
+        <constructor-arg name="year" value="2016"/>
+    </bean>
+
+    <bean id="vehicleThroughConstructorIndex" class="bny.training.spring.framework.model.Vehicle">
+        <constructor-arg index="0" value="bike"/>
+        <constructor-arg index="1" value="2015"/>
+    </bean>
+
+    <bean id="vehicleThroughSetter" class="bny.training.spring.framework.model.Vehicle">
+        <property name="type" value="airplane"/>
+        <property name="year" value="2014"/>
+    </bean>
 
 </beans>
