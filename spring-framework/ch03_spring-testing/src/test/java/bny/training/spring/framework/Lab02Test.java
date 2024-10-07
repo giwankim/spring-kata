@@ -18,37 +18,33 @@ package bny.training.spring.framework;
 
 import bny.training.spring.framework.model.BulkVehicleOrder;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-//TODO: Run this test with the right runner.
-//TODO: custom XML context configuration to configure an order of 7 count of 2016 pickup.
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:/lab02.xml"})
 public class Lab02Test {
 
-    @Autowired
-    private BulkVehicleOrder bulkVehicleOrder;
+  @Autowired
+  private BulkVehicleOrder bulkVehicleOrder;
 
-    @Test
-    public void customXmlContextPath() {
+  @Test
+  public void customXmlContextPath() {
+    
+    assertEquals(
+        7,
+        bulkVehicleOrder.getQuantity(),
+        "The quantity of vehicles should be [7]"
+    );
 
-        // TODO: Add a vehicle XML bean definition with id=vehicle as a 2016 pickup.
-        // TODO: Add a bulkVehicleOrder XML bean definition with the above vehicle and quantity of 7.
-        // UNCOMMENT BELOW CODE AND TEST.
-/*
-        assertEquals(
-                7,
-                bulkVehicleOrder.getQuantity(),
-                "The quantity of vehicles should be [7]"
-        );
-
-        assertEquals(
-                "2016 pickup",
-                bulkVehicleOrder.getVehicle().toString(),
-                "The shape should be [2016 pickup]"
-        );
-*/
-    }
-
+    assertEquals(
+        "2016 pickup",
+        bulkVehicleOrder.getVehicle().toString(),
+        "The shape should be [2016 pickup]"
+    );
+  }
 }
