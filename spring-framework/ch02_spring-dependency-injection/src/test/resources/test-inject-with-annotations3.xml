@@ -22,6 +22,26 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!-- create right configuration to pass the tests -->
+    <!-- create right configuration to pass the tests -->
+    <context:annotation-config/>
+
+    <bean id="vehicle" class="bny.training.spring.framework.model.Vehicle">
+        <qualifier value="vehicle"/>
+
+        <property name="type" value="airplane"/>
+        <property name="year" value="2014"/>
+    </bean>
+
+    <bean id="vehicle2" class="bny.training.spring.framework.model.Vehicle">
+        <qualifier value="vehicle2"/>
+
+        <property name="type" value="car"/>
+        <property name="year" value="2017"/>
+    </bean>
+
+    <bean id="constructorAnnotatedWithQualifierBulkVehicleOrder"
+          class="bny.training.spring.framework.model.ConstructorAnnotatedWithQualifierBulkVehicleOrder">
+        <property name="quantity" value="7"/>
+    </bean>
 
 </beans>
