@@ -16,15 +16,24 @@
 
 package bny.training.spring.framework.model;
 
-//TODO: Ensure that this Configuration is stereotyped.
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class Lab03DIConfiguration {
 
-    //TODO: Create a bean each for:
+  // twoPlane2016Order
+  @Bean(name = "twoPlane2016Order")
+  @Qualifier("twoPlane2016Order")
+  public BulkVehicleOrder twoPlane2016Order() {
+    return new BulkVehicleOrder(new Vehicle("plane", 2016), 2);
+  }
 
-    // twoPlane2016Order
-
-    // sixFlatbed2017Order
-
-    // TODO: Add qualifiers.
-
+  // sixFlatbed2017Order
+  @Bean(name = "sixFlatbed2017Order")
+  @Qualifier("sixFlatbed2017Order")
+  public BulkVehicleOrder sixFlatbed2017Order() {
+    return new BulkVehicleOrder(new Vehicle("flatbed", 2017), 6);
+  }
 }
